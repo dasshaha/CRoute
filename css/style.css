@@ -1,0 +1,580 @@
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abhaya Libre', serif;
+}
+
+body {
+    background-image: url('../images/articles_fon.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -10;
+    font-family: 'Abhaya Libre', serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+    margin: auto;
+}
+
+
+.hero {
+    position: relative;
+   
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 50px 15px 80px;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Abhaya Libre', serif;
+}
+
+.hero-container {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hero-left {
+    flex: 0 0 40%;
+}
+
+.hero-right {
+    flex: 0 0 70%;
+}
+
+.main-button{
+    position: absolute;
+    top: 75%;
+    right: 60%;
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.hero::before {
+    content: '';
+    background-image: url('../images/fon-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: blur(2px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -5;
+}
+
+.hero h1 {
+    font-size: 50px;
+    font-family: 'Abhaya Libre', serif;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-top: 80px;
+    font-family: 'Abhaya Libre', serif;
+    opacity: 0.9;
+    
+}
+
+
+
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    font-size: 18px;
+}
+
+.btn-primary {
+    background-color: #3c4860;
+    color: rgb(255, 255, 255);
+}
+
+.btn-primary:hover {
+    background-color: #4a6fa5;
+    transform: translateY(-2px);
+}
+
+
+
+
+.section {
+    padding: 120px 40px;
+
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ffffff;
+    font-size: 2.6rem;
+}
+
+.section h2.black {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #000000;
+
+}
+
+.work {
+    background-color: #ffffff;
+}
+
+
+
+
+
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.step {
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #7288aa;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.step:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+
+
+
+
+
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.benefits-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.benefit-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.benefit-content h3 {
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.benefit-content p {
+    color: #5a6c7d;
+    line-height: 1.5;
+}
+
+.example-column {
+    position: relative;
+}
+
+.example-route-card {
+    background: linear-gradient(135deg, #475773, #6081b3);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    height: 100%;
+    box-shadow: 0 15px 35px rgba(60, 72, 96, 0.3);
+}
+
+.example-route-card h3 {
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: white;
+}
+
+.route-preview {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.route-header h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.route-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.route-map {
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.route-map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.route-description p {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.route-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+
+
+
+
+
+
+
+.articles {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.articles-section {
+    padding: 10px;
+    padding-bottom: 80px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
+}
+
+.articles-scroll-container {
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+.articles-scroll {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0 10px;
+    scrollbar-width: none;
+}
+
+.articles-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.article-card {
+    flex: 0 0 300px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+}
+
+.article-image {
+    padding: 25px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.article-image img {
+    border-radius: 10px;
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.article-card:hover .article-image img {
+    transform: scale(1.03);
+}
+
+.article-content {
+    padding: 25px;
+    padding-top: 0px;
+}
+
+.article-content h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.article-content p {
+    color: #5a6c7d;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-link {
+    color: #4a6fa5;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.3s;
+}
+
+.article-link:hover {
+    gap: 12px;
+}
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.scroll-btn:hover {
+    background: #4a6fa5;
+    color: white;
+}
+
+.scroll-btn.prev {
+    left: 0;
+}
+
+.scroll-btn.next {
+    right: 0;
+}
+
+
+
+
+
+
+
+.telegram-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    color: #0088cc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+
+    font-size: 48px;
+    text-decoration: none;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+.telegram-float:hover {
+    transform: scale(1.1);
+}
+
+
+/* Подсказка при наведении */
+.telegram-float .tooltip {
+    position: absolute;
+    right: 60px;
+    background: #ffffff;
+    color: rgb(6, 6, 48);
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+    pointer-events: none;
+    border-color: 1px solid #000000;
+    border: 1px solid #026ca0db;
+}
+
+
+.telegram-float:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .articles-scroll-container {
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefit-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .route-stats {
+        justify-content: center;
+    }
+    
+    .scroll-btn {
+        display: none;
+    }
+    
+    .articles-scroll {
+        padding: 10px 0;
+    }
+    
+    .article-card {
+        flex: 0 0 280px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .benefits .container {
+        flex-direction: column;
+    }
+    
+    .footer .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+

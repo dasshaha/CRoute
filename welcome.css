@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Abhaya Libre', serif;
+    background-image: url('images/articles_fon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.welcome-container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.welcome-box {
+    
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+
+
+.tagline {
+    color: #5a6c7d;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.login-form h2 {
+    color: #2c3e50;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.login-form > p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e5eb;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Abhaya Libre', serif;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4a6fa5;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    font-size: 18px;
+    font-family: 'Abhaya Libre', serif;
+}
+
+.btn-primary {
+    background-color: #3c4860;
+    color: rgb(255, 255, 255);
+}
+
+.btn-primary:hover {
+    background-color: #4a6fa5;
+    transform: translateY(-2px);
+}
+
+.guest-note {
+    margin-top: 15px;
+    color: #777;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.welcome-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+}
+
+.welcome-footer p {
+    margin: 5px 0;
+}
+
+@media (max-width: 500px) {
+    .welcome-box {
+        padding: 30px 20px;
+    }
+    
+    .logo h1 {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}

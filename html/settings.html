@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки маршрута - CRoute</title>
+
+    <link rel="stylesheet" href="../css/setting.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="fonts.googleapis.com" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo23.png" alt="CRoute Logo" class="logo-icon">
+                <div><span class="logo_c" style="font-weight: 100;">C</span>Route</div>
+            </div>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="articles.html">Articles</a>
+                <a href="settings.html "class="active">Settings</a>
+                <a href="route.html">My Routes</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="section-settings">
+        <div class="container">
+            <h2>Setting parameters</h2>
+            
+            <div class="settings-form">
+
+                <div class="form-group">
+                    <label for="city"> Select a city</label>
+                    <select id="city" class="form-select">
+                        <option value=""> - </option>
+                        <option value="moscow">Moscow</option>
+                        <option value="spb">Saint-Petersburg</option>
+                        <option value="kazan">Kazan</option>
+                        <option value="ekb">Yekaterinburg</option>
+                        <option value="sochi">Sochi</option>
+                    </select>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Route style</label>
+                    <div class="options-grid">
+                        <div class="option-card" data-type="style" data-value="historical">
+                            <i class=""></i>
+                            <h3>Historical</h3>
+                            <p>Architecture and monuments</p>
+                        </div>
+                        <div class="option-card" data-type="style" data-value="modern">
+                            <i class=""></i>
+                            <h3>Modern</h3>
+                            <p>Modern attractions</p>
+                        </div>
+                        <div class="option-card" data-type="style" data-value="nature">
+                            <i class=""></i>
+                            <h3>Natural</h3>
+                            <p>Parks and squares</p>
+                        </div>
+                        <div class="option-card" data-type="style" data-value="romantic">
+                            <i class=""></i>
+                            <h3>Romantic</h3>
+                            <p>Cozy and beautiful places</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Activities</label>
+                    <div class="options-grid">
+                        <div class="option-card" data-type="activity" data-value="walking">
+                            <i class=""></i>
+                            <h3>Walking tour</h3>
+                            <p>Slow walking</p>
+                        </div>
+                        <div class="option-card" data-type="activity" data-value="photo">
+                            <i class=""></i>
+                            <h3>Photo walk</h3>
+                            <p>For beautiful photos</p>
+                        </div>
+                        <div class="option-card" data-type="activity" data-value="food">
+                            <i class=""></i>
+                            <h3>Gastronomic</h3>
+                            <p>Restaurants and cafes</p>
+                        </div>
+                        <div class="option-card" data-type="activity" data-value="shopping">
+                            <i class=""></i>
+                            <h3>Shopping</h3>
+                            <p>Shops, shopping centers</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Walking time</label>
+                    <div class="options-grid">
+                        <div class="option-card" data-type="time" data-value="1">
+                            <h3>1-2 hours</h3>
+                            <p>A short walk</p>
+                        </div>
+                        <div class="option-card" data-type="time" data-value="2">
+                            <h3>3-4 hours</h3>
+                            <p>Average duration</p>
+                        </div>
+                        <div class="option-card" data-type="time" data-value="3">
+                            <h3>5-6 hours</h3>
+                            <p>A long walk</p>
+                        </div>
+                        <div class="option-card" data-type="time" data-value="4">
+                            <h3>All day long</h3>
+                            <p>The longest route</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Budget</label>
+                    <div class="options-grid">
+                        <div class="option-card" data-type="budget" data-value="1">
+                            <i class="t"></i>
+                            <h3>Free</h3>
+                            <p>Without spending any money at all</p>
+                        </div>
+                        <div class="option-card" data-type="budget" data-value="2">
+                            <h3>Low budget</h3>
+                            <p>Small budget - up to 15$</p>
+                        </div>
+                        <div class="option-card" data-type="budget" data-value="3">
+                            <h3>Medium budget</h3>
+                            <p>Average budget - from 15$ to 40$</p>
+                        </div>
+                        <div class="option-card" data-type="budget" data-value="4">
+                            <h3>High budget</h3>
+                            <p>Maximum budget - 40$ +</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="selected-params">
+                    <h3>Selected parameters:</h3>
+                    <div id="selectedParamsDisplay">
+                        <p>City: <span class="param-value">not selected</span></p>
+                        <p>Style: <span class="param-value">not selected</span></p>
+                        <p>Activity: <span class="param-value">not selected</span></p>
+                        <p>Time: <span class="param-value">not selected</span></p>
+                        <p>Budget: <span class="param-value">not selected</span></p>
+                    </div>
+                </div>
+
+
+                <div class="form-buttons">
+                    <button id="backBtn" class="btn btn-secondary">Back</button>
+
+                    <button id="createRouteBtn" class="btn btn-primary">Create a route</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="logo" style="font-size: 18px">
+
+                <p>CRoute © 2025</p>
+            </div>
+            <div class="contacts">
+                <p>thurkina1@gmail.com</p>
+                <p>+7 (928) 810-13-07</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const citySelect = document.getElementById('city');
+            const optionCards = document.querySelectorAll('.option-card');
+            const selectedParamsDisplay = document.getElementById('selectedParamsDisplay');
+            const createRouteBtn = document.getElementById('createRouteBtn');
+            const backBtn = document.getElementById('backBtn');
+            
+            let selectedParams = {
+                city: '',
+                style: '',
+                activity: '',
+                time: '',
+                budget: ''
+            };
+            
+            // Обновление отображения выбранных параметров
+            function updateParamsDisplay() {
+                const params = selectedParams;
+                selectedParamsDisplay.innerHTML = `
+                    <p>City: <span class="param-value">${params.city || 'not selected'}</span></p>
+                    <p>Style: <span class="param-value">${params.style || 'not selected'}</span></p>
+                    <p>Activity: <span class="param-value">${params.activity || 'not selected'}</span></p>
+                    <p>Time: <span class="param-value">${params.time || 'not selected'}</span></p>
+                    <p>Budget: <span class="param-value">${params.budget || 'not selected'}</span></p>
+                `;
+                
+                // Активация кнопки, если все параметры выбраны
+                createRouteBtn.disabled = !(params.city && params.style && params.activity && params.time && params.budget);
+            }
+            
+            // Выбор города
+            citySelect.addEventListener('change', function() {
+                const cityName = this.options[this.selectedIndex].text;
+                selectedParams.city = cityName;
+                updateParamsDisplay();
+            });
+            
+            // Выбор опций
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const type = this.dataset.type;
+                    const value = this.dataset.value;
+                    const displayText = this.querySelector('h3').textContent;
+                    
+                    // Убираем выделение у других карточек того же типа
+                    document.querySelectorAll(`.option-card[data-type="${type}"]`).forEach(c => {
+                        c.classList.remove('selected');
+                    });
+
+                    this.classList.add('selected');
+                    
+                    selectedParams[type] = displayText;
+                    updateParamsDisplay();
+                });
+            });
+
+            createRouteBtn.addEventListener('click', function() {
+                if (!this.disabled) {
+
+                    saveSettings(
+                        selectedParams.city,
+                        selectedParams.style,
+                        selectedParams.activity,
+                        selectedParams.time,
+                        selectedParams.budget
+                    );
+                    
+                    // Подходящий маршрут из базы
+                    const route = findRoute(selectedParams);
+                    
+                    // Сохранение найденного маршрута
+                    localStorage.setItem('currentRoute', JSON.stringify(route));
+
+                    window.location.href = 'route.html';
+                }
+            });
+            
+            backBtn.addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+
+            updateParamsDisplay();
+        });
+    </script>
+</body>
+</html>

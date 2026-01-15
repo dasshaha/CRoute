@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш маршрут - CRoute</title>
+
+    <link rel="stylesheet" href="../css/route.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link href="fonts.googleapis.com" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            z-index: 1;
+        }
+        
+        .leaflet-container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .route-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .route-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="../images/logo23.png" alt="CRoute Logo" class="logo-icon">
+                <div><span class="logo_c" style="font-weight: 100;">C</span>Route</div>
+            </div>
+            <nav>
+                <a href="index.html">Home Page</a>
+                <a href="articles.html">Articles</a>
+                <a href="settings.html">Settings</a>
+                <a href="route.html" class="active">My Routes</a>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="section-route">
+        <div class="container">
+            <h2>Your perfect route</h2>
+            
+
+            <div class="route-params" id="routeParamsBox">
+                <h3>Selected parameters:</h3>
+                <div class="params-grid">
+                    <div class="param-item">
+                        <span id="paramCity">City not selected</span>
+                    </div>
+                    <div class="param-item">
+                        <span id="paramStyle">Style not selected</span>
+                    </div>
+                    <div class="param-item">
+                        <span id="paramActivity">Activity not selected</span>
+                    </div>
+                    <div class="param-item">
+                        <span id="paramTime">Time not selected</span>
+                    </div>
+                    <div class="param-item">
+                        <span id="paramBudget">Budget not selected</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-info">
+                <h2 id="routeTitle">Route name</h2>
+                <div class="route-meta">
+                    <span><span id="routeDuration"></span></span>
+                    <span><span id="routeDistance"></span></span>
+                    <span><span id="routePoints"></span></span>
+                    <span><span id="routeBudget"></span></span>
+
+                </div>
+                <p id="routeDescription">...</p>
+            </div>
+
+            <div class="route-details">
+                <div class="route-points">
+                    <h3>Route points</h3>
+                    <div id="routePointsList">
+
+                    </div>
+                </div>
+
+                <div class="map-container">
+                    <h3>Route map</h3>
+                    <div id="map"></div>
+                    <p class="map-note">The route is laid through the specified points</p>
+                </div>
+            </div>
+
+            <div class="route-actions">
+                <button id="backBtn" class="btn btn-back">Back to settings</button> 
+
+                <button id="saveRouteBtn" class="btn btn-save">Save route</button>
+                
+                <button id="shareBtn" class="btn btn-share">Share</button>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="logo" style="font-size: 18px">
+
+                <p>CRoute © 2025</p>
+            </div>
+            <div class="contacts">
+                <p>thurkina1@gmail.com</p>
+                <p>+7 (928) 810-13-07</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+
+        const cityCoordinates = {
+            "Moscow": [55.7558, 37.6176],
+            "Saint-Petersburg": [59.9343, 30.3351],
+            "Kazan": [55.7963, 49.1082],
+            "Yekaterinburg": [56.8389, 60.6057],
+            "Sochi": [43.5855, 39.7231]
+        };
+
+
+        function getPointCoordinates(baseCoords, index, totalPoints) {
+
+            const lat = baseCoords[0] + (Math.random() - 0.5) * 0.02;
+            const lng = baseCoords[1] + (Math.random() - 0.5) * 0.02;
+            return [lat, lng];
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            const route = getCurrentRoute();
+            const settings = getSettings();
+            
+            if (!route) {
+                alert('Сначала создайте маршрут!');
+                window.location.href = 'settings.html';
+                return;
+            }
+            
+
+            if (settings) {
+                document.getElementById('paramCity').textContent = settings.city;
+                document.getElementById('paramStyle').textContent = settings.style;
+                document.getElementById('paramActivity').textContent = settings.activity;
+                document.getElementById('paramTime').textContent = settings.time;
+                document.getElementById('paramBudget').textContent = settings.budget;
+            }
+            
+            // информация о маршруте
+            document.getElementById('routeTitle').textContent = route.title;
+            document.getElementById('routeDescription').textContent = route.description;
+            document.getElementById('routeDuration').textContent = route.duration;
+            document.getElementById('routeDistance').textContent = route.distance;
+            document.getElementById('routePoints').textContent = route.points.length + ' точек';
+            document.getElementById('routeBudget').textContent = route.budget;
+
+            
+            // Точки маршрута
+            const pointsList = document.getElementById('routePointsList');
+            pointsList.innerHTML = '';
+            
+            route.points.forEach((point, index) => {
+                const pointElement = document.createElement('div');
+                pointElement.className = 'route-point-item';
+                pointElement.innerHTML = `
+                    <div class="point-number">${index + 1}</div>
+                    <div class="point-details">
+                        <h4>${point.name}</h4>
+                        <p>${point.description}</p>
+                        <div class="point-time">
+                            <i class="far fa-clock"></i> ${point.time}
+                        </div>
+                    </div>
+                `;
+                pointsList.appendChild(pointElement);
+            });
+            
+            // Инициализация карты
+            const city = settings ? settings.city : "Москва";
+            const baseCoords = cityCoordinates[city] || [55.7558, 37.6176];
+            
+            const map = L.map('map').setView(baseCoords, 13);
+            
+            // Добавка слоя карты
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            
+            // Маркеры точек маршрута
+            const markers = [];
+            route.points.forEach((point, index) => {
+                const coords = getPointCoordinates(baseCoords, index, route.points.length);
+                const marker = L.marker(coords).addTo(map);
+                marker.bindPopup(`
+                    <b>Точка ${index + 1}: ${point.name}</b><br>
+                    ${point.description}<br>
+                    <i>Время: ${point.time}</i>
+                `);
+                markers.push(coords);
+                
+                // Номер точки
+                L.circleMarker(coords, {
+                    radius: 10,
+                    fillColor: '#ff6b6b',
+                    color: '#fff',
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(map).bindTooltip(`${index + 1}`, { permanent: true, direction: 'center' });
+            });
+            
+            // Линия маршрута
+            if (markers.length > 1) {
+                const routeLine = L.polyline(markers, {
+                    color: '#4a6fa5',
+                    weight: 3,
+                    opacity: 0.7,
+                    smoothFactor: 1
+                }).addTo(map);
+            }
+            
+            // Масштабирование карты
+            if (markers.length > 0) {
+                const bounds = L.latLngBounds(markers);
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+            
+            // Обработчики кнопок
+            document.getElementById('shareBtn').addEventListener('click', function() {
+                shareRoute(route);
+            });
+            
+            document.getElementById('saveRouteBtn').addEventListener('click', function() {
+                const saved = saveToMyRoutes(route);
+                if (saved) {
+                    this.innerHTML = 'Сохранено!';
+                    this.disabled = true;
+                    setTimeout(() => {
+                        this.innerHTML = 'Сохранить маршрут';
+                        this.disabled = false;
+                    }, 2000);
+                }
+            });
+            
+            document.getElementById('backBtn').addEventListener('click', function() {
+                window.location.href = 'settings.html';
+            });
+        });
+    </script>
+</body>
+</html>
