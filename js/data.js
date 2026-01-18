@@ -384,13 +384,49 @@ function findRoute(params) {
         route.budget === budget
     );
     
-    // Если нет точного, тогда по городу и стилю
+    // Если нет точного, тогда по городу, стилю и бюджету
+    if (!matchedRoute) {
+        matchedRoute = routesDatabase.find(route => 
+            route.city === city && 
+            route.style === style &&
+            route.budget === budget
+        );
+    }
+
+
+    if (!matchedRoute) {
+        matchedRoute = routesDatabase.find(route => 
+            route.city === city && 
+            route.activity === activity &&
+            route.budget === budget
+        );
+    }
+
+
     if (!matchedRoute) {
         matchedRoute = routesDatabase.find(route => 
             route.city === city && 
             route.style === style
         );
     }
+
+    
+    if (!matchedRoute) {
+        matchedRoute = routesDatabase.find(route => 
+            route.city === city && 
+            route.activity === activity
+        );
+    }
+
+    if (!matchedRoute) {
+        matchedRoute = routesDatabase.find(route => 
+            route.city === city && 
+            route.budget === budget
+        );
+    }
+
+
+
     
     // Если все еще нет, просто по городу
     if (!matchedRoute) {

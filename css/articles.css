@@ -35,10 +35,10 @@ body {
 
 .articles h2 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.6rem;
     color: #ffffff;
-    padding-top: 30px;
-    padding-bottom: 80px;
+    padding-top: 15px;
+    padding-bottom: 25px;
 }
 
 
@@ -144,7 +144,7 @@ body {
 
 @media (max-width: 1250px) {
     .container {
-        margin: auto 20px;
+        margin: auto 10px;
     }
 }
 
@@ -155,7 +155,7 @@ body {
     }
     
     .articles h2 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     
     .article-content h3 {

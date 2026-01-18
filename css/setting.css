@@ -35,7 +35,6 @@ body {
 
 
 
-
 .section-settings {
     min-height: 100vh;
     padding-top: 60px;
@@ -64,9 +63,10 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 15px;
-    font-size: 1.2rem;
-    color: #333;
+    font-size: 1.4rem;
+    color: #1c1c1c;
     font-weight: 600;
+    margin-left: 10px;
 
 }
 
@@ -211,3 +211,44 @@ body {
 }
 
 
+
+
+@media (max-width: 900px) {
+
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+
+    .form-select {
+        width: 300px;
+    }
+
+    .settings-form {
+        padding: 30px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container h2 {
+        font-size: 2rem;
+    }
+    
+    .form-select {
+        width: 200px;
+    }
+
+    .settings-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 300px) {
+    .form-select {
+        width: 150px;
+    }
+
+}

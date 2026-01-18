@@ -227,21 +227,26 @@ body {
 .route-actions {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
     margin-top: 40px;
     flex-wrap: wrap;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 30px;
+    padding: 15px 20px;
     border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: all 0.3s;
     font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-width: 100px;
+    max-width: 100%;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -267,14 +272,15 @@ body {
     border: none;
     cursor: pointer;
     transition: all 0.3s;
+    box-shadow: #333;
 }
 
 .btn-share {
-    background-color: #b9dcf4;
+    background-color: #b3cbdc;
 }
 
 .btn-save {
-    background-color: #90d8ba;
+    background-color: #c0dfcd;
 }
 
 .btn:hover {
@@ -307,19 +313,78 @@ body {
 
 
 
+@media (max-width: 900px) {
+    .section-route{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 
-@media (max-width: 768px) {
-    .params-grid {
-        grid-template-columns: 1fr;
+    .btn {
+        min-width: 140px;
+        padding: 12px 15px;
+        font-size: 16px;
     }
     
     .route-actions {
-        flex-direction: column;
-        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .container h2 {
+        font-size: 2rem;
+    }
+
+    .route-info h2{
+        font-size: 1.5rem;
+    }
+    
+    .route-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
     
     .btn-action {
         width: 100%;
         max-width: 300px;
+    }
+
+    .route-params {
+        padding: 30px;
+    }
+
+    .route-actions {
+        gap: 15px;
+        margin-top: 30px;
+        
+    }
+
+    .btn {
+        min-width: 120px;
+        padding: 10px 0;
+        font-size: 16px;
+        max-width: 180px;
+        flex: 1;
+    }
+}
+
+@media (max-width: 300px) {
+    .route-params {
+        padding: 20px;
+    }
+
+    .route-actions {
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .btn {
+        min-width: 100px;
+        padding: 8px 10px;
+        font-size: 14px;
+        max-width: 150px;
     }
 }
