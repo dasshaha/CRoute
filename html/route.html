@@ -155,13 +155,6 @@
         };
 
 
-        function getPointCoordinates(baseCoords, index, totalPoints) {
-
-            const lat = baseCoords[0] + (Math.random() - 0.5) * 0.02;
-            const lng = baseCoords[1] + (Math.random() - 0.5) * 0.02;
-            return [lat, lng];
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
 
             const route = getCurrentRoute();
@@ -219,18 +212,24 @@
             
             // Добавка слоя карты
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors'
+                attribution: ''
             }).addTo(map);
             
             // Маркеры точек маршрута
             const markers = [];
             route.points.forEach((point, index) => {
-                const coords = getPointCoordinates(baseCoords, index, route.points.length);
+                let coords;
+                if (point.coordinates) {
+                    coords = point.coordinates; // Координаты из data.js
+                } else {
+                    coords = findCoordinatesForAttraction(city, point.name); // Или по названию
+                }
+                
                 const marker = L.marker(coords).addTo(map);
                 marker.bindPopup(`
-                    <b>Точка ${index + 1}: ${point.name}</b><br>
+                    <b>Point ${index + 1}: ${point.name}</b><br>
                     ${point.description}<br>
-                    <i>Время: ${point.time}</i>
+                    <i>Time: ${point.time}</i>
                 `);
                 markers.push(coords);
                 
